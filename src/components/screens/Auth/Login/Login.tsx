@@ -41,6 +41,10 @@ const Login: React.FC = () => {
   const dispatch = useDispatch();
   const { isAuth, error, status } = useTypedSelector((state) => state.auth);
 
+  useEffect(() => {
+    localStorage.removeItem("access_token");
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       username: "", // 8747 411 81 59
@@ -87,25 +91,25 @@ const Login: React.FC = () => {
           }}
         >
           <Typography align="center" sx={{ fontSize: "25px", fontWeight: 500 }}>
-            Добро Пожаловать!
+            Welcome!
           </Typography>
 
           <form onSubmit={handleSubmit}>
             <Stack spacing={1}>
               <Stack>
-                <Typography>ИИН</Typography>
+                <Typography>IIN</Typography>
                 <TextField
                   ref={inputRef}
                   name="username"
                   value={username}
                   required
                   onChange={handleChange}
-                  placeholder="ИИН"
+                  placeholder="IIN"
                 />
                 {errors.username && <Typography>{errors.username}</Typography>}
               </Stack>
               <Stack>
-                <Typography>Пароль</Typography>
+                <Typography>Password</Typography>
                 <TextField
                   id="my-input"
                   aria-describedby="my-helper-text"
@@ -113,7 +117,7 @@ const Login: React.FC = () => {
                   type="password"
                   value={password}
                   onChange={handleChange}
-                  placeholder="Введите пароль"
+                  placeholder="Enter password"
                 />
                 {errors.password && <Typography>{errors.password}</Typography>}
               </Stack>
@@ -129,13 +133,13 @@ const Login: React.FC = () => {
                   }
                   type="submit"
                 >
-                  Войти
+                  Sign In
                 </Button>
               </Box>
 
               <Typography>
-                У вас нет аккаунта?{" "}
-                <Button onClick={() => handleOpen()}>Регистрируйтесь</Button>
+                You don't have an account?{" "}
+                <Button onClick={() => handleOpen()}>Sign Up</Button>
               </Typography>
             </Stack>
           </form>

@@ -72,85 +72,85 @@ const Registration: React.FC = () => {
     <Container maxWidth="xs" component={"main"}>
       <Stack sx={{ height: "100vh", justifyContent: "center" }}>
         <Typography align="center" sx={{ fontSize: "25px", fontWeight: 500 }}>
-          Регистрация
+          Sign Up
         </Typography>
 
         <form onSubmit={handleSubmit}>
           <Stack spacing={1}>
             <Stack>
-              <Typography>Ф.И.О</Typography>
+              <Typography>Full Name</Typography>
               <TextField
                 ref={inputRef}
                 name="fullName"
                 value={fullName}
                 required
                 onChange={handleChange}
-                placeholder="Ф.И.О"
+                placeholder="Full Name"
               />
               {errors.phone && <Typography>{errors.fullName}</Typography>}
             </Stack>
 
             <Stack>
-              <Typography>Адрес</Typography>
+              <Typography>Address</Typography>
               <TextField
                 id="my-input"
                 aria-describedby="my-helper-text"
                 name="address"
                 value={address}
                 onChange={handleChange}
-                placeholder="Адрес"
+                placeholder="Address"
               />
               {errors.address && <Typography>{errors.address}</Typography>}
             </Stack>
 
             <Stack>
-              <Typography>Район</Typography>
+              <Typography>Location</Typography>
               <TextField
                 id="my-input"
                 aria-describedby="my-helper-text"
                 name="location"
                 value={location}
                 onChange={handleChange}
-                placeholder="Район"
+                placeholder="Location"
               />
               {errors.location && <Typography>{errors.location}</Typography>}
             </Stack>
 
             <Stack>
-              <Typography>Должность</Typography>
+              <Typography>Position</Typography>
               <TextField
                 id="my-input"
                 aria-describedby="my-helper-text"
                 name="position"
                 value={position}
                 onChange={handleChange}
-                placeholder="Должность"
+                placeholder="Position"
               />
               {errors.position && <Typography>{errors.position}</Typography>}
             </Stack>
 
             <Stack>
-              <Typography>Номер Телефона</Typography>
+              <Typography>Phone Number</Typography>
               <TextField
                 id="my-input"
                 aria-describedby="my-helper-text"
                 name="phone"
                 value={phone}
                 onChange={handleChange}
-                placeholder="Телефона"
+                placeholder="Phone Number"
               />
               {errors.phone && <Typography>{errors.phone}</Typography>}
             </Stack>
 
             <Stack>
-              <Typography>ИИН</Typography>
+              <Typography>IIN</Typography>
               <TextField
                 id="my-input"
                 aria-describedby="my-helper-text"
                 name="username"
                 value={username}
                 onChange={handleChange}
-                placeholder="ИИН"
+                placeholder="IIN"
               />
               {errors.username && <Typography>{errors.username}</Typography>}
             </Stack>
@@ -189,7 +189,7 @@ const Registration: React.FC = () => {
                 }
                 type="submit"
               >
-                Регистрироваться
+                Sign Up
               </Button>
             </Box>
 
@@ -201,13 +201,13 @@ const Registration: React.FC = () => {
                   color: "success.main",
                 }}
               >
-                Успешно Зарегистрировались!
+                Successfully Signed Up!
               </Typography>
             )}
 
             <Typography>
-              Уже Есть Аккаунт?{" "}
-              <Button onClick={() => handleClick()}>Войти</Button>
+              You've already have account?{" "}
+              <Button onClick={() => handleClick()}>Sign In</Button>
             </Typography>
           </Stack>
         </form>
