@@ -6,8 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { TableFooter, TablePagination } from "@mui/material";
+import { Button, Stack, TableFooter, TablePagination } from "@mui/material";
 import { IPost } from "@store/rtk-api/post-rtk/post.type";
+import { useNavigate } from "react-router-dom";
+import AlertDialog from "./Approve";
 
 const heads = [
   "ID",
@@ -17,6 +19,7 @@ const heads = [
   "Category",
   "Description",
   "Details",
+  "Action",
 ];
 
 interface Props {
@@ -24,6 +27,8 @@ interface Props {
 }
 
 const PostTable: React.FC<Props> = ({ data }) => {
+  const navigate = useNavigate();
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -50,6 +55,17 @@ const PostTable: React.FC<Props> = ({ data }) => {
                 <TableCell>{row.postCategory}</TableCell>
                 <TableCell>{row.description}</TableCell>
                 <TableCell>{row.details}</TableCell>
+                <TableCell>
+                  <Stack>
+                    <Button
+                      variant={"contained"}
+                      onClick={() => navigate(`/app/home/one/${row.id}`)}
+                    >
+                      Get In
+                    </Button>
+                    <AlertDialog postId={row.id} />
+                  </Stack>
+                </TableCell>
               </TableRow>
             ))}
         </TableBody>

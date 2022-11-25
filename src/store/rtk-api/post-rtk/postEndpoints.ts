@@ -10,6 +10,12 @@ export const postEndpoints = postApi.injectEndpoints({
       }),
       providesTags: ["post"],
     }),
+    getOnePosts: builder.query<any, string>({
+      query: (id) => ({
+        url: `/posts/${id}`,
+      }),
+      providesTags: ["post"],
+    }),
     createPost: builder.mutation<IPost, IPost>({
       query: (body) => ({
         url: `/posts`,
@@ -18,7 +24,20 @@ export const postEndpoints = postApi.injectEndpoints({
       }),
       invalidatesTags: ["post"],
     }),
+    approvePost: builder.mutation<any, any>({
+      query: (id) => ({
+        url: `/posts/approve/${id}`,
+        method: "POST",
+        params: { approved: true },
+      }),
+      invalidatesTags: ["post"],
+    }),
   }),
 });
 
-export const { useGetPostsQuery, useCreatePostMutation } = postEndpoints;
+export const {
+  useGetPostsQuery,
+  useGetOnePostsQuery,
+  useCreatePostMutation,
+  useApprovePostMutation,
+} = postEndpoints;

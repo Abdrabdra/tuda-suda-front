@@ -9,7 +9,7 @@ const HomePage = () => {
       <Route>
         <Route index element={<MainHome />} />
         <Route path="one" element={<Navigate to="/" />} />
-        <Route path="one/:announceId" element={<OneHome />} />
+        <Route path="one/:postId" element={<OneHome />} />
         <Route path="filter" element={<Filter />} />
 
         <Route path="*" element={<MainHome />} />
