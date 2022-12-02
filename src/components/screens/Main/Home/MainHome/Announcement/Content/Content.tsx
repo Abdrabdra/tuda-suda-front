@@ -8,9 +8,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useTypedSelector } from "@store/index";
 import { useGetPostsQuery } from "@store/rtk-api/post-rtk/postEndpoints";
 import { useFormik } from "formik";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CreatePost from "./CreatePost";
 
@@ -67,15 +68,19 @@ const Content = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const { role } = useTypedSelector((state) => state.auth);
+
   return (
     <Stack spacing={2}>
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h4" my={1}>
           Posts
         </Typography>
-        <Button variant="contained" color="success" onClick={handleOpen}>
-          Create Post
-        </Button>
+        {role === "ROLE_POLICEMAN" && (
+          <Button variant="contained" color="success" onClick={handleOpen}>
+            Create Post
+          </Button>
+        )}
         <Modal
           open={open}
           onClose={handleClose}

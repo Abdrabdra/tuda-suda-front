@@ -5,6 +5,7 @@ import { login, register } from "./auth.action";
 interface IInitState {
   isAuth: boolean;
   isRegistered: boolean;
+  role: any;
   error: unknown;
   status: ActionsEnum;
 }
@@ -12,6 +13,7 @@ interface IInitState {
 const initialState: IInitState = {
   isAuth: false,
   isRegistered: false,
+  role: null,
   error: null,
   status: ActionsEnum.IDLE,
 };
@@ -25,6 +27,9 @@ const authReducer = createSlice({
     },
     setUnRegister: (state) => {
       state.isRegistered = false;
+    },
+    setRole: (state, { payload }) => {
+      state.role = payload;
     },
     logout: (state) => {
       localStorage.removeItem("access_token");
@@ -62,6 +67,7 @@ const authReducer = createSlice({
   },
 });
 
-export const { setStatus, setUnRegister, logout } = authReducer.actions;
+export const { setStatus, setUnRegister, logout, setRole } =
+  authReducer.actions;
 
 export default authReducer.reducer;

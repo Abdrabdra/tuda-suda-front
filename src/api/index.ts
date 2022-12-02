@@ -6,6 +6,7 @@ export const DEV_API = "http://localhost:8080/api";
 
 export const $api = axios.create({
   baseURL: DEV_API,
+  // withCredentials: true,
 });
 
 $api.interceptors.request.use((config) => {

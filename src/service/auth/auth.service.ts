@@ -13,12 +13,12 @@ export class AuthService {
     return $api.post<string>(`auth/register`, creds);
   }
 
+  static async userme(): Promise<AxiosResponse<any>> {
+    return $api.get<any>(`auth/me`);
+  }
+
   // static async logout(): Promise<AxiosResponse<ILoginResponse>> {
   //   return axios.get(`${DEV_API}auth/logout`);
-  // }
-
-  // static async refresh(): Promise<AxiosResponse<ILoginResponse>> {
-  //   return axios.get<ILoginResponse>(`${DEV_API}auth/refresh`);
   // }
 
   // static async logout(): Promise<AxiosResponse<ILoginResponse>> {

@@ -4,7 +4,6 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 //reducer
 import authReducer from "./reducers/auth/auth.slice";
-import stepperReducer from "./reducers/stepper/stepper.slice";
 
 //rtk
 import homeApi from "./rtk-api/home-rtk/homeApi";
@@ -13,7 +12,6 @@ import postApi from "./rtk-api/post-rtk/postApi";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  stepper: stepperReducer,
 
   [homeApi.reducerPath]: homeApi.reducer,
   [userApi.reducerPath]: userApi.reducer,

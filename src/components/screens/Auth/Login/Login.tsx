@@ -24,6 +24,8 @@ import { loginSchema } from "../../../../utils/schema/validation";
 import { StyledNewInput } from "../../../ui/Input";
 import { ActionsEnum } from "../../../../store/enum";
 import { login } from "../../../../store/reducers/auth/auth.action";
+import { AuthService } from "service/auth/auth.service";
+import { setRole } from "@store/reducers/auth/auth.slice";
 
 const style = {
   position: "absolute" as "absolute",
@@ -39,7 +41,9 @@ const style = {
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
-  const { isAuth, error, status } = useTypedSelector((state) => state.auth);
+  const { isAuth, error, status, role } = useTypedSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
     localStorage.removeItem("access_token");

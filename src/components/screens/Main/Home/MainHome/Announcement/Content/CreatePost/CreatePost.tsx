@@ -34,7 +34,7 @@ const CreatePost = () => {
       id: 0,
       city: "",
       district: "",
-      dateTime: date,
+      dateTime: "11.10.2022 13:50",
       postCategory: "",
       description: "",
       details: "",
@@ -104,6 +104,19 @@ const CreatePost = () => {
               value={values.description}
               onChange={handleChange}
               placeholder="Description"
+            />
+          </Stack>
+
+          <Stack>
+            <Typography>Date</Typography>
+            <TextField
+              id="my-input"
+              required
+              aria-describedby="my-helper-text"
+              name="date"
+              value={values.dateTime}
+              onChange={handleChange}
+              placeholder="Date"
             />
           </Stack>
 

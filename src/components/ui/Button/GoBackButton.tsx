@@ -4,11 +4,6 @@ import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
-import {
-  decrementStep,
-  setDefaultState,
-  setStep,
-} from "@store/reducers/stepper/stepper.slice";
 import { RootState, useTypedSelector } from "@store/index";
 
 const StartIcon = () => {
@@ -43,30 +38,14 @@ const GoBackButton: FC<GoBackButtonProps> = ({ forPost }) => {
     navigate(-1);
   };
 
-  const currentStep = useTypedSelector(
-    (state: RootState) => state.stepper.step
-  );
-  const currentStepTitle = useTypedSelector(
-    (state: RootState) => state.stepper.stepTitle
-  );
-
-  const handlePostClick = () => {
-    if (currentStep === 0) {
-      handleClick();
-      dispatch(setDefaultState());
-    } else {
-      dispatch(decrementStep());
-    }
-  };
+  const handlePostClick = () => {};
 
   return (
     <Button
       onClick={forPost ? handlePostClick : handleClick}
       startIcon={<StartIcon />}
       sx={{ color: "common.white", fontWeight: 600, fontSize: "16px" }}
-    >
-      {forPost ? `${currentStepTitle}` : "Назад"}
-    </Button>
+    ></Button>
   );
 };
 

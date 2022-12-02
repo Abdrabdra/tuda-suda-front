@@ -10,6 +10,7 @@ export const login = createAsyncThunk(
       const response = await AuthService.login(creds);
       localStorage.setItem("access_token", response.data);
       console.log(response.data);
+
       return response.data;
     } catch (e) {
       return rejectWithValue(e);

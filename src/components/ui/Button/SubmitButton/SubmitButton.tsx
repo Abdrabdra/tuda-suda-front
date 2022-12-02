@@ -10,19 +10,7 @@ interface SubmitButtonProps {
 }
 
 const GetStepButtonTitle = () => {
-  const currentStep = useTypedSelector(
-    (state: RootState) => state.stepper.step
-  );
-
-  return (
-    <>
-      {currentStep === 14
-        ? "Закончить"
-        : currentStep === 15
-        ? "На Главную"
-        : "Подтвердить"}
-    </>
-  );
+  return <>ч</>;
 };
 
 const SubmitButton = styled(
