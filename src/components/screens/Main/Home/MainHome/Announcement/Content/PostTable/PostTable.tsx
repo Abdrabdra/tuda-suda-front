@@ -37,7 +37,7 @@ const heads = [
 ];
 
 interface Props {
-  data?: any;
+  data: any;
 }
 
 const PostTable: React.FC<Props> = ({ data }) => {
@@ -47,7 +47,7 @@ const PostTable: React.FC<Props> = ({ data }) => {
   const lastData =
     role === "ROLE_POLICEMAN"
       ? data
-      : data.filter((row: any) => row.approved === true);
+      : data && data.filter((row: any) => row.approved === true);
 
   console.log(lastData);
 
@@ -164,15 +164,13 @@ const PostTable: React.FC<Props> = ({ data }) => {
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      {data && (
-        <DataGrid
-          rows={lastData}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-        />
-      )}
+      <DataGrid
+        rows={lastData}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
     </div>
   );
 };

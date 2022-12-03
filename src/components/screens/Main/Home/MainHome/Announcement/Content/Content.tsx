@@ -76,11 +76,9 @@ const Content = () => {
         <Typography variant="h4" my={1}>
           Posts
         </Typography>
-        {role === "ROLE_POLICEMAN" && (
-          <Button variant="contained" color="success" onClick={handleOpen}>
-            Create Post
-          </Button>
-        )}
+        <Button variant="contained" color="success" onClick={handleOpen}>
+          Create Post
+        </Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -111,7 +109,7 @@ const Content = () => {
         </Stack>
       </form>
 
-      <PostTable data={data && data.content} />
+      {data && <PostTable data={data.content} />}
     </Stack>
   );
 };
